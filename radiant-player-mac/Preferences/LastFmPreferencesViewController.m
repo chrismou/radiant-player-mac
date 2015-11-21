@@ -113,7 +113,8 @@
 {
     return @"Last.fm";
 }
-- (IBAction)sliderChanged:(NSSlider *)sender {
+
+- (IBAction)percentageChanged:(id)sender {
     long percent = (50 + [self.scrobblingPercent integerValue]/2);
     NSString *val=[NSString stringWithFormat:@"%lu%%",percent];
     [scrobblingPercentLabel setStringValue: val];

@@ -596,6 +596,9 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <animations/>
                     <sliderCell key="cell" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="rol-26-JR2"/>
+                    <connections>
+                        <action selector="percentageChanged:" target="ekN-Jf-CMK" id="wlA-Hg-NPh"/>
+                    </connections>
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qpn-Mm-Shc">
                     <rect key="frame" x="115" y="295" width="94" height="17"/>
