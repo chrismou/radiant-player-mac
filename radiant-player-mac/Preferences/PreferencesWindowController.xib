@@ -598,6 +598,7 @@
                     <sliderCell key="cell" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="rol-26-JR2"/>
                     <connections>
                         <action selector="percentageChanged:" target="ekN-Jf-CMK" id="wlA-Hg-NPh"/>
+                        <binding destination="qKJ-ks-0kW" name="value" keyPath="values.lastfm.percentage" id="41I-5v-Av2"/>
                     </connections>
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="qpn-Mm-Shc">
