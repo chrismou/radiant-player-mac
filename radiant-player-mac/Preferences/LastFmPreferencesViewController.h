@@ -24,4 +24,7 @@
 - (IBAction) authorizeScrobble:(id)sender;
 - (void) sync;
 
+@property (weak) IBOutlet NSSlider *scrobblingPercent;
+@property (weak) IBOutlet NSTextField *scrobblingPercentLabel;
+
 @end

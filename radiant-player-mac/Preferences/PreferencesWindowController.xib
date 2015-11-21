@@ -365,6 +365,8 @@
                 <outlet property="authorizeButton" destination="Xdb-Xz-u5h" id="6Zd-7l-7by"/>
                 <outlet property="logo" destination="UIE-Fx-6GJ" id="cQA-Ux-l4b"/>
                 <outlet property="passwordField" destination="i2g-5K-Cl4" id="OzG-or-Fl7"/>
+                <outlet property="scrobblingPercent" destination="AH3-Ok-1RM" id="Scw-cd-Dwd"/>
+                <outlet property="scrobblingPercentLabel" destination="Uhz-9B-Xo4" id="YqH-Sh-hgC"/>
                 <outlet property="usernameField" destination="jsE-zR-hLS" id="jE3-32-FXk"/>
                 <outlet property="view" destination="uPE-UJ-Mvs" id="VFL-pG-hWF"/>
             </connections>
@@ -590,7 +592,7 @@
                     <font key="titleFont" metaFont="system"/>
                 </box>
                 <slider verticalHuggingPriority="750" id="AH3-Ok-1RM">
-                    <rect key="frame" x="216" y="294" width="149" height="20"/>
+                    <rect key="frame" x="204" y="294" width="121" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <animations/>
                     <sliderCell key="cell" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="rol-26-JR2"/>
@@ -602,36 +604,6 @@
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Scrobble after:" id="0f2-vL-pL4">
                         <font key="font" metaFont="smallSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="VfW-MT-HDp">
-                    <rect key="frame" x="204" y="275" width="31" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <animations/>
-                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="50%" id="Y27-oB-ayT">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="i8v-f3-SRv">
-                    <rect key="frame" x="345" y="275" width="37" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <animations/>
-                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="100%" id="P8J-3w-Qs5">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="NfK-3b-gPT">
-                    <rect key="frame" x="276" y="275" width="30" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <animations/>
-                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="75%" id="kJb-M9-8lR">
-                        <font key="font" metaFont="smallSystem"/>
-                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
@@ -649,8 +621,26 @@ when the track is rated "thumbs up"</string>
                         <binding destination="qKJ-ks-0kW" name="value" keyPath="values.lastfm.thumbsup.enabled" id="2EL-XQ-yfD"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Uhz-9B-Xo4">
+                    <rect key="frame" x="329" y="298" width="31" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <animations/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="50%" id="TNi-k8-dvd">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <animations/>
+            <attributedString key="userComments">
+                <fragment content="labels">
+                    <attributes>
+                        <font key="NSFont" metaFont="smallSystem"/>
+                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                    </attributes>
+                </fragment>
+            </attributedString>
             <point key="canvasLocation" x="290" y="731"/>
         </customView>
         <arrayController id="spz-iP-VP0" userLabel="Styles Array Controller">

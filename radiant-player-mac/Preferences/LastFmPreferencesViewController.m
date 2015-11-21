@@ -14,6 +14,7 @@
 @synthesize authorizeButton;
 @synthesize usernameField;
 @synthesize passwordField;
+@synthesize scrobblingPercentLabel;
 @synthesize logo;
 
 @synthesize defaults;
@@ -111,6 +112,11 @@
 - (NSString *)toolbarItemLabel
 {
     return @"Last.fm";
+}
+- (IBAction)sliderChanged:(NSSlider *)sender {
+    long percent = (50 + [self.scrobblingPercent integerValue]/2);
+    NSString *val=[NSString stringWithFormat:@"%lu%%",percent];
+    [scrobblingPercentLabel setStringValue: val];
 }
 
 @end
