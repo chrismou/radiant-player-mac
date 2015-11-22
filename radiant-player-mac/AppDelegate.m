@@ -706,10 +706,23 @@ static CGEventRef event_tap_callback(CGEventTapProxy proxy,
     
     if ([defaults boolForKey:@"lastfm.enabled"])
     {
-        [LastFmService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp percentage:[defaults stringForKey:@"lastfm.percentage"]];
+        //[LastFmService scrobbleSong:currentTitle withArtist:currentArtist album:currentAlbum duration:currentDuration timestamp:currentTimestamp];
         //[LastFmService scrobbleSong:title withArtist:artist album:album duration:duration timestamp:timestamp percentage:[defaults stringForKey:@"lastfm.percentage"]];
         [LastFmService sendNowPlaying:title withArtist:artist album:album duration:duration timestamp:timestamp];
     }
+    
+    long percent = (50 + [[defaults stringForKey:@"lastfm.percentage"] integerValue]/2);
+    long scrobbleAt = (duration/100)*percent;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, scrobbleAt * NSEC_PER_SEC);
+    NSLog(@"** %@ scrobble at %lu %%", title, percent);
+    NSLog(@"** %@ to scrobble after %lu seconds", title, scrobbleAt);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        if (title == currentTitle) {
+            NSLog(@"** %@ to scrobble now", title);
+        } else {
+            NSLog(@"** %@ won't scrobble. Did the song change?", title);
+        }
+    });
     
     // Determine whether the player is using thumbs or stars.
     NSNumber *value = [[webView windowScriptObject] evaluateWebScript:@"window.MusicAPI.Rating.isStarsRatingSystem()"];

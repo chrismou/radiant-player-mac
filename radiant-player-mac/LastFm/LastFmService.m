@@ -207,24 +207,19 @@
     return nil;
 }
 
-+ (void) doTheThing:(NSString *)title withArtist:(NSString *)artist
-{
-    NSLog(@"Hit");
-}
-
 + (void)scrobbleSong:(NSString *)title withArtist:(NSString *)artist album:(NSString *)album duration:(NSTimeInterval)duration timestamp:(NSTimeInterval)timestamp percentage:(NSString *)percentage
 {
     NSTimeInterval curTimestamp = [[NSDate date] timeIntervalSince1970];
     //long value = (50 + (percentage/2));
     //long pc = percentage;
     
-    long percent = (50 + [percentage integerValue]/2);
-    //NSString *val=[NSString stringWithFormat:@"%lu",percent];
-    long scrobbleAt = (duration/100)*percent;
+    // long percent = (50 + [percentage integerValue]/2);
+    // //NSString *val=[NSString stringWithFormat:@"%lu",percent];
+    // long scrobbleAt = (duration/100)*percent;
     
-    NSLog(@"%@ length: %f", title, duration);
-    NSLog(@"Scrobble percent: %lu", percent);
-    NSLog(@"%@ to be scrobbled at: %lu", title, scrobbleAt);
+    // NSLog(@"%@ length: %f", title, duration);
+    // NSLog(@"Scrobble percent: %lu", percent);
+    // NSLog(@"%@ to be scrobbled at: %lu", title, scrobbleAt);
     
     //if ([title length] && curTimestamp - timestamp >= scrobbleAt) {
         [[LastFm sharedInstance] sendScrobbledTrack:title
